@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2018
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1.AsynchronousProgramming", "Task1.AsynchronousProgramming\Task1.AsynchronousProgramming.csproj", "{735BD70B-2448-4402-96FA-2B7139F591EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task2.Synchronization", "Task2.Synchronization\Task2.Synchronization.csproj", "{0262CC04-2448-484D-8283-8D7314F11CC9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{735BD70B-2448-4402-96FA-2B7139F591EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{735BD70B-2448-4402-96FA-2B7139F591EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{735BD70B-2448-4402-96FA-2B7139F591EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{735BD70B-2448-4402-96FA-2B7139F591EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0262CC04-2448-484D-8283-8D7314F11CC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0262CC04-2448-484D-8283-8D7314F11CC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0262CC04-2448-484D-8283-8D7314F11CC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0262CC04-2448-484D-8283-8D7314F11CC9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {04560AAE-22D5-42D1-8B9F-E64A1CF1281F}
+	EndGlobalSection
+EndGlobal

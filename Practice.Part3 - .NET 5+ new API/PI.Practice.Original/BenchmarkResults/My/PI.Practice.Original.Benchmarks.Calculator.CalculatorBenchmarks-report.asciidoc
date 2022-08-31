@@ -1,0 +1,20 @@
+....
+BenchmarkDotNet=v0.13.0, OS=Windows 10.0.19043.1237 (21H1/May2021Update)
+Intel Core i5-4440 CPU 3.10GHz (Haswell), 1 CPU, 4 logical and 4 physical cores
+.NET SDK=5.0.401
+  [Host]     : .NET 5.0.10 (5.0.1021.41214), X64 RyuJIT
+  DefaultJob : .NET 5.0.10 (5.0.1021.41214), X64 RyuJIT
+
+....
+[options="header"]
+|===
+|                                                     Method|           Mean|         Error|        StdDev|     Ratio|  RatioSD|   Gen 0|  Gen 1|  Gen 2|  Allocated|  Completed Work Items|  Lock Contentions
+|                                     IntegersCalculater_Sum|       59.66 μs|      0.182 μs|      0.171 μs|      1.00|     0.00|  3.7842|      -|      -|      12 KB|                0.0001|                 -
+|                                 IntegersCalculater_SumSpan|       61.37 μs|      0.275 μs|      0.243 μs|      1.03|     0.00|  3.3569|      -|      -|      10 KB|                0.0001|                 -
+|                                IntegersCalculater_SumAsync|  157,065.87 μs|  2,458.491 μs|  2,299.674 μs|  2,632.69|    37.63|       -|      -|      -|      18 KB|               13.5000|                 -
+|                          IntegersCalculater_SumMemoryAsync|  156,656.43 μs|  2,615.605 μs|  2,446.639 μs|  2,625.83|    40.15|       -|      -|      -|      17 KB|               13.5000|                 -
+|                 IntegersCalculater_SumMemoryWithCacheAsync|      103.49 μs|      1.004 μs|      0.939 μs|      1.73|     0.02|  3.5400|      -|      -|      11 KB|                3.0002|                 -
+|            IntegersCalculater_SumMemoryWithCacheValueAsync|      103.67 μs|      1.007 μs|      0.942 μs|      1.74|     0.02|  3.2959|      -|      -|      10 KB|                3.0002|                 -
+|    IntegersCalculater_SumMemoryWithCacheValueIteratorAsync|      104.55 μs|      0.916 μs|      0.857 μs|      1.75|     0.01|  3.1738|      -|      -|      10 KB|                3.0002|            0.0001
+|  IntegersCalculater_SumMemoryWithCacheValueEnumerableAsync|      110.25 μs|      0.573 μs|      0.536 μs|      1.85|     0.01|  4.2725|      -|      -|      11 KB|                3.0006|            0.0013
+|===

@@ -1,0 +1,32 @@
+....
+BenchmarkDotNet=v0.13.0, OS=Windows 10.0.19042.1083 (20H2/October2020Update)
+Intel Core i5-4460 CPU 3.20GHz (Haswell), 1 CPU, 4 logical and 4 physical cores
+.NET SDK=5.0.302
+  [Host]     : .NET 5.0.8 (5.0.821.31504), X64 RyuJIT
+  DefaultJob : .NET 5.0.8 (5.0.821.31504), X64 RyuJIT
+
+....
+[options="header"]
+|===
+|                               Method|     TestFileName|        Mean|     Error|    StdDev|      Median|  Ratio|  RatioSD|     Gen 0|     Gen 1|    Gen 2|  Allocated|  Completed Work Items|  Lock Contentions
+|                 FileInputReader_Read|        Input.txt|    181.8 μs|   6.26 μs|  18.45 μs|    184.6 μs|   1.00|     0.00|    2.4414|         -|        -|       8 KB|                0.0005|                 -
+|            FileInputReader_ReadAsync|        Input.txt|    207.3 μs|   2.45 μs|   2.17 μs|    206.8 μs|   1.10|     0.03|    2.4414|         -|        -|       9 KB|                1.0010|            0.0005
+|    FileInputReader_ReadIteratorAsync|        Input.txt|    218.5 μs|   4.29 μs|  10.28 μs|    218.0 μs|   1.16|     0.08|    2.6855|         -|        -|       9 KB|                1.0005|            0.0005
+|  FileInputReader_ReadEnumerableAsync|        Input.txt|    240.2 μs|   4.61 μs|   5.30 μs|    239.8 μs|   1.29|     0.06|    2.9297|         -|        -|       9 KB|                3.0005|            0.0007
+|                 FileInputReader_Read|     Input_10.txt|    178.1 μs|   2.71 μs|   2.27 μs|    178.3 μs|   1.00|     0.00|    2.6855|         -|        -|       9 KB|                0.0005|                 -
+|            FileInputReader_ReadAsync|     Input_10.txt|    231.8 μs|   6.25 μs|  17.93 μs|    229.8 μs|   1.46|     0.08|    3.1738|         -|        -|      10 KB|                1.0005|            0.0002
+|    FileInputReader_ReadIteratorAsync|     Input_10.txt|    241.2 μs|   5.45 μs|  16.06 μs|    240.4 μs|   1.37|     0.07|    2.9297|         -|        -|      10 KB|                1.0010|            0.0005
+|  FileInputReader_ReadEnumerableAsync|     Input_10.txt|    255.1 μs|   5.02 μs|  10.69 μs|    252.4 μs|   1.42|     0.04|    3.4180|         -|        -|      10 KB|                3.0010|            0.0200
+|                 FileInputReader_Read|    Input_100.txt|    203.4 μs|   3.95 μs|   5.14 μs|    201.1 μs|   1.00|     0.00|    5.6152|         -|        -|      17 KB|                0.0005|                 -
+|            FileInputReader_ReadAsync|    Input_100.txt|    279.5 μs|   6.80 μs|  19.63 μs|    272.1 μs|   1.43|     0.14|    8.3008|         -|        -|      26 KB|                3.0010|            0.0015
+|    FileInputReader_ReadIteratorAsync|    Input_100.txt|    279.8 μs|   5.46 μs|   9.71 μs|    278.1 μs|   1.38|     0.06|    7.8125|         -|        -|      24 KB|                3.0010|            0.0005
+|  FileInputReader_ReadEnumerableAsync|    Input_100.txt|    279.5 μs|   5.27 μs|   5.18 μs|    277.6 μs|   1.37|     0.04|    8.3008|         -|        -|      24 KB|                5.0010|            0.0029
+|                 FileInputReader_Read|   Input_1000.txt|    331.5 μs|   6.63 μs|   6.20 μs|    331.1 μs|   1.00|     0.00|   31.7383|         -|        -|      98 KB|                0.0010|                 -
+|            FileInputReader_ReadAsync|   Input_1000.txt|    582.8 μs|  11.26 μs|  24.24 μs|    585.3 μs|   1.74|     0.09|   58.5938|         -|        -|     177 KB|               24.0195|            0.0049
+|    FileInputReader_ReadIteratorAsync|   Input_1000.txt|    599.8 μs|  10.96 μs|  19.19 μs|    603.7 μs|   1.78|     0.07|   52.7344|         -|        -|     161 KB|               24.0107|            0.0029
+|  FileInputReader_ReadEnumerableAsync|   Input_1000.txt|    591.8 μs|   8.97 μs|  10.68 μs|    591.4 μs|   1.79|     0.04|   53.7109|         -|        -|     164 KB|               26.0137|            0.0029
+|                 FileInputReader_Read|  Input_10000.txt|  2,330.7 μs|  43.27 μs|  53.14 μs|  2,328.1 μs|   1.00|     0.00|  175.7813|  105.4688|  35.1563|   1,010 KB|                0.0078|                 -
+|            FileInputReader_ReadAsync|  Input_10000.txt|  4,671.0 μs|  59.96 μs|  53.15 μs|  4,689.3 μs|   2.01|     0.04|  273.4375|   85.9375|  39.0625|   1,791 KB|              233.0000|                 -
+|    FileInputReader_ReadIteratorAsync|  Input_10000.txt|  3,471.3 μs|  58.42 μs|  51.79 μs|  3,450.8 μs|   1.49|     0.03|  503.9063|         -|        -|   1,535 KB|              232.1016|                 -
+|  FileInputReader_ReadEnumerableAsync|  Input_10000.txt|  3,194.2 μs|  32.75 μs|  25.57 μs|  3,201.1 μs|   1.37|     0.04|  511.7188|         -|        -|   1,564 KB|              234.1289|            0.0039
+|===

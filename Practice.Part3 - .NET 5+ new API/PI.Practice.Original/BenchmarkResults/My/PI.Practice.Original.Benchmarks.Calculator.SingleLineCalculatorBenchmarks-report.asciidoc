@@ -1,0 +1,18 @@
+....
+BenchmarkDotNet=v0.13.0, OS=Windows 10.0.19043.1237 (21H1/May2021Update)
+Intel Core i5-4440 CPU 3.10GHz (Haswell), 1 CPU, 4 logical and 4 physical cores
+.NET SDK=5.0.401
+  [Host]     : .NET 5.0.10 (5.0.1021.41214), X64 RyuJIT
+  DefaultJob : .NET 5.0.10 (5.0.1021.41214), X64 RyuJIT
+
+....
+[options="header"]
+|===
+|                                           Method|              Mean|            Error|           StdDev|      Ratio|  RatioSD|   Gen 0|  Gen 1|  Gen 2|  Allocated|  Completed Work Items|  Lock Contentions
+|                         SingleLineCalculator_Sum|        3,944.7 ns|         14.33 ns|         12.70 ns|       1.00|     0.00|  0.9918|      -|      -|    3,120 B|                0.0000|                 -
+|                       IntegersCalculater_SumSpan|        3,426.3 ns|         10.43 ns|          9.76 ns|       0.87|     0.00|  0.5341|      -|      -|    1,680 B|                0.0000|                 -
+|                      IntegersCalculater_SumAsync|  157,231,456.7 ns|  2,878,551.82 ns|  2,692,599.16 ns|  39,834.00|   689.78|       -|      -|      -|    7,632 B|               10.5000|                 -
+|                IntegersCalculater_SumMemoryAsync|  156,001,127.1 ns|  2,152,062.46 ns|  1,680,188.81 ns|  39,558.69|   454.67|       -|      -|      -|    6,352 B|               10.5000|                 -
+|       IntegersCalculater_SumMemoryWithCacheAsync|          802.4 ns|          5.39 ns|          4.50 ns|       0.20|     0.00|  0.2518|      -|      -|      792 B|                0.0000|                 -
+|  IntegersCalculater_SumMemoryWithCacheValueAsync|          762.8 ns|          2.47 ns|          2.19 ns|       0.19|     0.00|  0.0229|      -|      -|       72 B|                0.0000|                 -
+|===

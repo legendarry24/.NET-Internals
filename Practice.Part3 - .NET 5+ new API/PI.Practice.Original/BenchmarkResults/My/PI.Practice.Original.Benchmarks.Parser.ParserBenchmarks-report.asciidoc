@@ -1,0 +1,16 @@
+....
+BenchmarkDotNet=v0.13.0, OS=Windows 10.0.19043.1237 (21H1/May2021Update)
+Intel Core i5-4440 CPU 3.10GHz (Haswell), 1 CPU, 4 logical and 4 physical cores
+.NET SDK=5.0.401
+  [Host]     : .NET 5.0.10 (5.0.1021.41214), X64 RyuJIT
+  DefaultJob : .NET 5.0.10 (5.0.1021.41214), X64 RyuJIT
+
+....
+[options="header"]
+|===
+|                           Method|            Mean|          Error|         StdDev|      Ratio|   RatioSD|   Gen 0|  Gen 1|  Gen 2|  Allocated|  Completed Work Items|  Lock Contentions
+|             IntegersParser_Parse|        2.043 μs|      0.0389 μs|      0.0463 μs|       1.00|      0.00|  0.9918|      -|      -|       3 KB|                0.0000|                 -
+|         IntegersParser_ParseSpan|        2.589 μs|      0.0100 μs|      0.0094 μs|       1.26|      0.03|  0.4044|      -|      -|       1 KB|                0.0000|                 -
+|        IntegersParser_ParseAsync|  156,942.913 μs|  2,534.3073 μs|  2,370.5927 μs|  76,475.54|  1,755.12|       -|      -|      -|       6 KB|               10.5000|                 -
+|  IntegersParser_ParseMemoryAsync|  155,441.008 μs|  1,276.4011 μs|  1,065.8527 μs|  75,504.60|  1,694.42|       -|      -|      -|       5 KB|               10.5000|                 -
+|===

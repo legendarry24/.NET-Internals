@@ -1,0 +1,52 @@
+....
+BenchmarkDotNet=v0.13.0, OS=Windows 10.0.19042.1083 (20H2/October2020Update)
+Intel Core i5-4460 CPU 3.20GHz (Haswell), 1 CPU, 4 logical and 4 physical cores
+.NET SDK=5.0.302
+  [Host]     : .NET 5.0.8 (5.0.821.31504), X64 RyuJIT
+  DefaultJob : .NET 5.0.8 (5.0.821.31504), X64 RyuJIT
+
+....
+[options="header"]
+|===
+|                                           Method|     TestFileName|              Mean|           Error|          StdDev|  Ratio|  RatioSD|      Gen 0|  Gen 1|  Gen 2|     Allocated|  Completed Work Items|  Lock Contentions
+|                         SingleLineCalculator_Sum|        Input.txt|         383.63 ns|        7.573 ns|       10.365 ns|   1.00|     0.00|     0.0968|      -|      -|         304 B|                0.0000|                 -
+|                       IntegersCalculater_SumSpan|        Input.txt|         276.92 ns|        1.187 ns|        1.110 ns|   0.73|     0.02|     0.0534|      -|      -|         168 B|                0.0000|                 -
+|                      IntegersCalculater_SumAsync|        Input.txt|      10,321.04 ns|      188.316 ns|      176.150 ns|  27.21|     1.15|     0.5798|      -|      -|       1,800 B|                6.0064|                 -
+|             IntegersCalculater_SumWithCacheAsync|        Input.txt|          88.94 ns|        1.361 ns|        1.273 ns|   0.23|     0.01|     0.0459|      -|      -|         144 B|                0.0000|                 -
+|        IntegersCalculater_SumWithCacheValueAsync|        Input.txt|          83.21 ns|        0.710 ns|        0.630 ns|   0.22|     0.01|     0.0229|      -|      -|          72 B|                0.0000|                 -
+|                IntegersCalculater_SumMemoryAsync|        Input.txt|       9,526.70 ns|      183.197 ns|      196.018 ns|  25.01|     1.11|     0.4730|      -|      -|       1,504 B|                5.0051|                 -
+|       IntegersCalculater_SumMemoryWithCacheAsync|        Input.txt|          96.19 ns|        1.868 ns|        1.999 ns|   0.25|     0.01|     0.0459|      -|      -|         144 B|                0.0000|                 -
+|  IntegersCalculater_SumMemoryWithCacheValueAsync|        Input.txt|          98.55 ns|        0.264 ns|        0.234 ns|   0.26|     0.01|     0.0229|      -|      -|          72 B|                0.0000|                 -
+|                         SingleLineCalculator_Sum|     Input_10.txt|       4,042.09 ns|       57.708 ns|       53.980 ns|   1.00|     0.00|     0.9918|      -|      -|       3,120 B|                0.0000|                 -
+|                       IntegersCalculater_SumSpan|     Input_10.txt|       3,090.94 ns|       28.345 ns|       25.127 ns|   0.77|     0.01|     0.5341|      -|      -|       1,680 B|                0.0000|                 -
+|                      IntegersCalculater_SumAsync|     Input_10.txt|      63,148.83 ns|      480.202 ns|      425.687 ns|  15.65|     0.23|     5.3711|      -|      -|      16,856 B|               60.1747|                 -
+|             IntegersCalculater_SumWithCacheAsync|     Input_10.txt|         730.07 ns|        4.290 ns|        3.803 ns|   0.18|     0.00|     0.2518|      -|      -|         792 B|                0.0000|                 -
+|        IntegersCalculater_SumWithCacheValueAsync|     Input_10.txt|         704.30 ns|        5.123 ns|        4.792 ns|   0.17|     0.00|     0.0229|      -|      -|          72 B|                0.0000|                 -
+|                IntegersCalculater_SumMemoryAsync|     Input_10.txt|      54,291.55 ns|      529.028 ns|      494.853 ns|  13.43|     0.21|     4.3945|      -|      -|      13,816 B|               50.1602|            0.0001
+|       IntegersCalculater_SumMemoryWithCacheAsync|     Input_10.txt|         826.28 ns|        4.582 ns|        4.286 ns|   0.20|     0.00|     0.2518|      -|      -|         792 B|                0.0000|                 -
+|  IntegersCalculater_SumMemoryWithCacheValueAsync|     Input_10.txt|         809.72 ns|        4.892 ns|        4.576 ns|   0.20|     0.00|     0.0229|      -|      -|          72 B|                0.0000|                 -
+|                         SingleLineCalculator_Sum|    Input_100.txt|      40,974.32 ns|      799.605 ns|    1,011.244 ns|   1.00|     0.00|     9.8877|      -|      -|      31,128 B|                0.0001|                 -
+|                       IntegersCalculater_SumSpan|    Input_100.txt|      31,899.20 ns|      190.208 ns|      177.921 ns|   0.78|     0.02|     5.3101|      -|      -|      16,800 B|                0.0001|                 -
+|                      IntegersCalculater_SumAsync|    Input_100.txt|     602,053.58 ns|    5,850.288 ns|    5,472.363 ns|  14.70|     0.50|    53.7109|      -|      -|     167,299 B|              602.1484|            0.0635
+|             IntegersCalculater_SumWithCacheAsync|    Input_100.txt|       6,834.81 ns|       54.204 ns|       48.050 ns|   0.17|     0.01|     2.3117|      -|      -|       7,272 B|                0.0000|                 -
+|        IntegersCalculater_SumWithCacheValueAsync|    Input_100.txt|       6,288.95 ns|       43.318 ns|       38.400 ns|   0.15|     0.00|     0.0229|      -|      -|          72 B|                0.0000|                 -
+|                IntegersCalculater_SumMemoryAsync|    Input_100.txt|     513,717.25 ns|    3,734.565 ns|    3,493.314 ns|  12.54|     0.43|    43.9453|      -|      -|     136,973 B|              501.6963|            0.0518
+|       IntegersCalculater_SumMemoryWithCacheAsync|    Input_100.txt|       7,634.46 ns|       50.939 ns|       45.156 ns|   0.19|     0.01|     2.3041|      -|      -|       7,272 B|                0.0000|                 -
+|  IntegersCalculater_SumMemoryWithCacheValueAsync|    Input_100.txt|       7,251.04 ns|       77.885 ns|       69.043 ns|   0.18|     0.01|     0.0153|      -|      -|          72 B|                0.0000|                 -
+|                         SingleLineCalculator_Sum|   Input_1000.txt|     415,866.67 ns|    2,109.860 ns|    1,973.564 ns|   1.00|     0.00|    99.1211|      -|      -|     311,520 B|                0.0010|                 -
+|                       IntegersCalculater_SumSpan|   Input_1000.txt|     313,800.40 ns|    2,114.525 ns|    1,874.472 ns|   0.75|     0.01|    53.2227|      -|      -|     168,000 B|                0.0010|                 -
+|                      IntegersCalculater_SumAsync|   Input_1000.txt|   5,862,952.64 ns|   25,869.775 ns|   21,602.434 ns|  14.09|     0.09|   531.2500|      -|      -|   1,671,722 B|             6017.9219|            0.1172
+|             IntegersCalculater_SumWithCacheAsync|   Input_1000.txt|      64,145.74 ns|      641.470 ns|      600.031 ns|   0.15|     0.00|    22.9492|      -|      -|      72,072 B|                0.0002|                 -
+|        IntegersCalculater_SumWithCacheValueAsync|   Input_1000.txt|      62,215.66 ns|      328.516 ns|      307.294 ns|   0.15|     0.00|          -|      -|      -|          72 B|                0.0001|                 -
+|                IntegersCalculater_SumMemoryAsync|   Input_1000.txt|   5,053,548.70 ns|   28,605.494 ns|   26,757.597 ns|  12.15|     0.10|   437.5000|      -|      -|   1,368,191 B|             5013.1484|            0.0469
+|       IntegersCalculater_SumMemoryWithCacheAsync|   Input_1000.txt|      71,490.43 ns|      561.787 ns|      498.009 ns|   0.17|     0.00|    22.9492|      -|      -|      72,072 B|                0.0002|                 -
+|  IntegersCalculater_SumMemoryWithCacheValueAsync|   Input_1000.txt|      72,412.21 ns|    1,076.102 ns|    1,006.587 ns|   0.17|     0.00|          -|      -|      -|          72 B|                0.0002|                 -
+|                         SingleLineCalculator_Sum|  Input_10000.txt|   3,947,594.58 ns|   47,898.202 ns|   44,804.008 ns|   1.00|     0.00|   992.1875|      -|      -|   3,114,450 B|                0.0156|                 -
+|                       IntegersCalculater_SumSpan|  Input_10000.txt|   3,085,716.93 ns|   14,594.591 ns|   13,651.789 ns|   0.78|     0.01|   535.1563|      -|      -|   1,680,001 B|                0.0078|                 -
+|                      IntegersCalculater_SumAsync|  Input_10000.txt|  58,523,067.46 ns|  769,918.155 ns|  682,512.391 ns|  14.82|     0.32|  5333.3333|      -|      -|  16,714,790 B|            60153.0000|                 -
+|             IntegersCalculater_SumWithCacheAsync|  Input_10000.txt|     641,880.28 ns|    5,603.077 ns|    5,241.122 ns|   0.16|     0.00|   229.4922|      -|      -|     720,072 B|                0.0020|                 -
+|        IntegersCalculater_SumWithCacheValueAsync|  Input_10000.txt|     601,038.43 ns|    2,751.914 ns|    2,574.142 ns|   0.15|     0.00|          -|      -|      -|          72 B|                0.0020|                 -
+|                IntegersCalculater_SumMemoryAsync|  Input_10000.txt|  50,413,716.36 ns|  418,295.351 ns|  391,273.731 ns|  12.77|     0.19|  4363.6364|      -|      -|  13,681,017 B|            50161.2727|            0.0909
+|       IntegersCalculater_SumMemoryWithCacheAsync|  Input_10000.txt|     705,445.17 ns|    5,172.274 ns|    4,838.148 ns|   0.18|     0.00|   229.4922|      -|      -|     720,072 B|                0.0020|                 -
+|  IntegersCalculater_SumMemoryWithCacheValueAsync|  Input_10000.txt|     725,150.86 ns|   11,665.189 ns|   10,911.625 ns|   0.18|     0.00|          -|      -|      -|          72 B|                0.0020|                 -
+|===

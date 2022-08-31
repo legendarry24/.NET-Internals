@@ -1,0 +1,32 @@
+....
+BenchmarkDotNet=v0.13.0, OS=Windows 10.0.19042.1083 (20H2/October2020Update)
+Intel Core i5-4460 CPU 3.20GHz (Haswell), 1 CPU, 4 logical and 4 physical cores
+.NET SDK=5.0.302
+  [Host]     : .NET 5.0.8 (5.0.821.31504), X64 RyuJIT
+  DefaultJob : .NET 5.0.8 (5.0.821.31504), X64 RyuJIT
+
+....
+[options="header"]
+|===
+|                           Method|     TestFileName|             Mean|          Error|         StdDev|  Ratio|  RatioSD|      Gen 0|  Gen 1|  Gen 2|     Allocated|  Completed Work Items|  Lock Contentions
+|             IntegersParser_Parse|        Input.txt|         179.0 ns|        1.90 ns|        1.59 ns|   1.00|     0.00|     0.0968|      -|      -|         304 B|                0.0000|                 -
+|         IntegersParser_ParseSpan|        Input.txt|         189.3 ns|        2.55 ns|        2.26 ns|   1.06|     0.02|     0.0408|      -|      -|         128 B|                0.0000|                 -
+|        IntegersParser_ParseAsync|        Input.txt|       9,239.5 ns|      156.19 ns|      160.40 ns|  51.74|     0.68|     0.5188|      -|      -|       1,624 B|                6.0193|            0.0000
+|  IntegersParser_ParseMemoryAsync|        Input.txt|       8,434.4 ns|      210.23 ns|      619.88 ns|  45.33|     2.58|     0.4120|      -|      -|       1,320 B|                5.0058|                 -
+|             IntegersParser_Parse|     Input_10.txt|       1,915.3 ns|       37.57 ns|       35.14 ns|   1.00|     0.00|     0.9937|      -|      -|       3,120 B|                0.0000|                 -
+|         IntegersParser_ParseSpan|     Input_10.txt|       2,240.5 ns|       20.21 ns|       15.78 ns|   1.17|     0.03|     0.4044|      -|      -|       1,280 B|                0.0000|                 -
+|        IntegersParser_ParseAsync|     Input_10.txt|      58,097.0 ns|      393.58 ns|      348.90 ns|  30.34|     0.64|     4.8218|      -|      -|      15,168 B|               60.2054|            0.0003
+|  IntegersParser_ParseMemoryAsync|     Input_10.txt|      50,449.2 ns|      552.36 ns|      516.67 ns|  26.35|     0.55|     3.8452|      -|      -|      12,048 B|               50.1852|            0.0001
+|             IntegersParser_Parse|    Input_100.txt|      19,447.4 ns|      386.81 ns|      566.97 ns|   1.00|     0.00|     9.9182|      -|      -|      31,128 B|                0.0001|                 -
+|         IntegersParser_ParseSpan|    Input_100.txt|      23,075.1 ns|      105.36 ns|       82.26 ns|   1.19|     0.02|     4.0588|      -|      -|      12,800 B|                0.0001|                 -
+|        IntegersParser_ParseAsync|    Input_100.txt|     546,571.7 ns|    2,634.77 ns|    2,464.57 ns|  28.12|     0.73|    47.8516|      -|      -|     150,487 B|              602.0273|            0.0713
+|  IntegersParser_ParseMemoryAsync|    Input_100.txt|     475,429.4 ns|    2,321.73 ns|    2,171.75 ns|  24.46|     0.60|    38.0859|      -|      -|     119,376 B|              501.3828|            0.1475
+|             IntegersParser_Parse|   Input_1000.txt|     191,767.1 ns|    3,049.91 ns|    2,703.67 ns|   1.00|     0.00|    99.1211|      -|      -|     311,520 B|                0.0005|                 -
+|         IntegersParser_ParseSpan|   Input_1000.txt|     232,718.0 ns|    2,405.89 ns|    2,132.75 ns|   1.21|     0.02|    40.7715|      -|      -|     128,000 B|                0.0005|                 -
+|        IntegersParser_ParseAsync|   Input_1000.txt|   5,434,147.4 ns|   33,590.81 ns|   31,420.87 ns|  28.37|     0.45|   476.5625|      -|      -|   1,503,711 B|             6018.2031|            0.0781
+|  IntegersParser_ParseMemoryAsync|   Input_1000.txt|   4,614,698.6 ns|   61,097.08 ns|   57,150.25 ns|  24.07|     0.51|   382.8125|      -|      -|   1,192,185 B|             5014.8516|            0.1328
+|             IntegersParser_Parse|  Input_10000.txt|   2,016,064.9 ns|   38,767.88 ns|   51,754.01 ns|   1.00|     0.00|   992.1875|      -|      -|   3,114,449 B|                0.0078|                 -
+|         IntegersParser_ParseSpan|  Input_10000.txt|   2,300,610.2 ns|   40,549.34 ns|   37,929.88 ns|   1.13|     0.03|   406.2500|      -|      -|   1,280,001 B|                0.0078|                 -
+|        IntegersParser_ParseAsync|  Input_10000.txt|  54,244,422.7 ns|  546,800.76 ns|  511,477.77 ns|  26.68|     0.70|  4800.0000|      -|      -|  15,034,698 B|            60219.6000|                 -
+|  IntegersParser_ParseMemoryAsync|  Input_10000.txt|  46,236,443.6 ns|  439,737.91 ns|  411,331.11 ns|  22.74|     0.62|  3818.1818|      -|      -|  11,920,244 B|            50112.5455|                 -
+|===

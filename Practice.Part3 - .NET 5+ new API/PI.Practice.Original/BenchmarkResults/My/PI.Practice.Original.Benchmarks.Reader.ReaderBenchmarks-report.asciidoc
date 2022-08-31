@@ -1,0 +1,16 @@
+....
+BenchmarkDotNet=v0.13.0, OS=Windows 10.0.19043.1237 (21H1/May2021Update)
+Intel Core i5-4440 CPU 3.10GHz (Haswell), 1 CPU, 4 logical and 4 physical cores
+.NET SDK=5.0.401
+  [Host]     : .NET 5.0.10 (5.0.1021.41214), X64 RyuJIT
+  DefaultJob : .NET 5.0.10 (5.0.1021.41214), X64 RyuJIT
+
+....
+[options="header"]
+|===
+|                               Method|       Mean|     Error|    StdDev|  Ratio|  RatioSD|   Gen 0|  Gen 1|  Gen 2|  Allocated|  Completed Work Items|  Lock Contentions
+|                 FileInputReader_Read|   55.19 μs|  0.510 μs|  0.477 μs|   1.00|     0.00|  2.8076|      -|      -|       9 KB|                0.0001|                 -
+|            FileInputReader_ReadAsync|  105.22 μs|  0.735 μs|  0.688 μs|   1.91|     0.02|  3.2959|      -|      -|      10 KB|                3.0002|                 -
+|    FileInputReader_ReadIteratorAsync|  103.25 μs|  1.201 μs|  1.065 μs|   1.87|     0.02|  3.1738|      -|      -|      10 KB|                3.0002|                 -
+|  FileInputReader_ReadEnumerableAsync|  108.84 μs|  0.279 μs|  0.261 μs|   1.97|     0.02|  4.1504|      -|      -|      11 KB|                3.0005|            0.0021
+|===
